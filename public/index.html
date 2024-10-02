@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar artículos...">
+            <button onclick="buscarArticulos()">Buscar</button>
+        </div>
+        <div class="logo">
+            <a href="./index.html"><img src="./assets/meleree.webp" alt="Logo" width="179"></a>
+        </div>
+        <div class="cart-container">
+            <button onclick="mostrarCarrito()">
+                <img src="./assets/bolsaa.webp" alt="Carrito" width="35">
+                <span id="cartCount">0</span>
+            </button>
+        </div>
+        
+        <div id="cartOverlay" class="overlay" style="display: none;">
+            <div class="overlay-content">
+                <span class="close" onclick="cerrarCarrito()">&times;</span>
+                <h2>Contenido del Carrito</h2>
+                <div id="cartContents"></div>
+                <label for="medioPago">Medio de Pago:</label>
+                <select id="medioPago">
+                    <option value="opcion">Selecciona una opción</option>
+                    <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                    <option value="mercado">MercadoPago</option>
+                    <option value="transferencia">Transferencia Bancaria</option>
+                </select>
+                <label for="medioEnvio">Medio de Envío:</label>
+                <select id="medioEnvio">
+                    <option value="opcion">Selecciona una opción</option>
+                    <option value="standard">Envío por Correo Argentino</option>
+                    <option value="express">Envío por moto</option>
+                    <option value="retiro">Retiro en tienda</option>
+                </select>
+                <button onclick="finalizarCompra()">Finalizar Compra</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="loginPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="cerrarPopup()">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="nombreUsuario" placeholder="Ingrese su nombre" />
+            <input type="password" id="contrasena" placeholder="Ingrese su contraseña" />
+            <button id="miBoton">Entrar</button>
+            <button id="sinRegistroBtn">Entrar como Visitante</button>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="section-btn" onclick="location.href='./pages/remeras.html'">Remeras</button>
+        <button class="section-btn" onclick="location.href='./pages/abrigos.html'">Abrigos</button>
+        <button class="section-btn" onclick="location.href='./pages/accesorios.html'">Accesorios</button>
+        <button class="section-btn" onclick="location.href='./pages/nosotros.html'">Nosotros</button>
+        <button class="section-btn" onclick="location.href='./pages/local.html'">Local</button>
+    </div>
+
+    <div id="contenedor-articulos"></div>
+
+    <form id="miFormulario">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="email" id="email" placeholder="Correo" required>
+        <textarea id="mensaje" placeholder="Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+            
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</body>
+</html>
